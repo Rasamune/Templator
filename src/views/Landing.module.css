@@ -1,0 +1,35 @@
+.landing {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.landing h1 {
+  text-align: center;
+}
+
+.landing p {
+  text-align: center;
+}
+
+.landing .buttonarea {
+  display: flex;
+  justify-content: center;
+}
+
+.landing .button {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.background {
+  position: absolute;
+  width: 90%;
+  height: 50%;
+  background-color: #eceae8;
+  left: 5%;
+  top: 40%;
+}
