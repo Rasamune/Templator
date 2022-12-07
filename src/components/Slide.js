@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import useIntersect from '../hooks/useIntersect';
 import classes from './Slide.module.css';
 
 const Slide = ({
@@ -6,13 +7,20 @@ const Slide = ({
   xorigin = '0',
   yorigin = '0',
   animationSpeed = 1000,
+  intersectOffset = '0%',
 }) => {
   const [slideIn, setSlideIn] = useState(false);
   const durationInSeconds = `${animationSpeed.toString().slice(0, 1)}s`;
+  const [ref, entry] = useIntersect({ rootMargin: intersectOffset });
+  const isVisible = entry.isIntersecting;
+
+  console.log(entry);
 
   useEffect(() => {
-    setSlideIn(true);
-  }, []);
+    if (isVisible) {
+      setSlideIn(true);
+    }
+  }, [isVisible]);
 
   return (
     <div
@@ -21,6 +29,7 @@ const Slide = ({
         transformOrigin: `${xorigin} ${yorigin}`,
         transitionDuration: durationInSeconds,
       }}
+      ref={ref}
     >
       {children}
     </div>

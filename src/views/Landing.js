@@ -7,32 +7,39 @@ import LazyLoad from '../components/LazyLoad';
 
 const Landing = () => {
   return (
-    <View id="landing">
-      <div className={classes.landing}>
-        <Container>
-          <h1>ABOUT</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque venenatis commodo commodo. Mauris tempus aliquet
-            vehicula. Etiam sagittis felis quis arcu porta, id gravida nulla
-            elementum.
-          </p>
-          <div className={classes.buttonarea}>
-            <Slide>
-              <button className={classes.button}>
-                <LazyLoad></LazyLoad>
-                Click Here
-              </button>
+    <>
+      <View />
+      <View id="landing">
+        <div className={classes.landing}>
+          <Container>
+            <h1>ABOUT</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque venenatis commodo commodo. Mauris tempus aliquet
+              vehicula. Etiam sagittis felis quis arcu porta, id gravida nulla
+              elementum.
+            </p>
+            <div className={classes.buttonarea}>
+              <Slide intersectOffset="-30%">
+                <button className={classes.button}>
+                  {/* 
+                    MOVE LAZY LOADING INTO SLIDE COMPONENT
+                    - IMPLEMENT CHECK FOR LOADING ASSESTS (ie IMAGE)
+                  */}
+                  <LazyLoad />
+                  Click Here
+                </button>
+              </Slide>
+            </div>
+          </Container>
+          <Background>
+            <Slide xorigin="5%">
+              <div className={classes.background}></div>
             </Slide>
-          </div>
-        </Container>
-        <Background>
-          <Slide xorigin="5%">
-            <div className={classes.background}></div>
-          </Slide>
-        </Background>
-      </div>
-    </View>
+          </Background>
+        </div>
+      </View>
+    </>
   );
 };
 
