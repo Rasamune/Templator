@@ -24,7 +24,6 @@ const useIntersect = ({ root = null, rootMargin = '0%', threshold = 0 }) => {
 
   const disconnect = () => {
     observer.current.disconnect();
-    console.log('Disconnected');
   };
 
   return [setNode, entry, disconnect];

@@ -1,24 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import classes from './Landing.module.css';
 import View from '../components/View';
 import Container from '../components/Container';
 import Background from '../components/Background';
 import Slide from '../components/Slide';
+import mapImage from '../assets/map.png';
 
 const Landing = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
-
-  const buttonClickHandler = () => {
-    console.log('click');
-  };
-
-  useEffect(() => {
-    if (!imageLoaded) {
-      setTimeout(() => {
-        setImageLoaded(true);
-      }, 2000);
-    }
-  }, [imageLoaded]);
 
   return (
     <>
@@ -33,19 +22,28 @@ const Landing = () => {
               vehicula. Etiam sagittis felis quis arcu porta, id gravida nulla
               elementum.
             </p>
-            <Slide lazyload={true} waitfor={imageLoaded}>
-              <button className={classes.button} onClick={buttonClickHandler}>
-                Click Here
-              </button>
+            <Slide lazyload={true}>
+              <button className={classes.button}>Click Here</button>
             </Slide>
           </Container>
           <Background>
             <Slide>
-              <div className={classes.background} />
+              <div className={classes.greybox} />
+            </Slide>
+            <Slide>
+              <div className={classes.blackbox} />
+            </Slide>
+            <Slide lazyload={true} waitfor={imageLoaded}>
+              <img
+                src={mapImage}
+                alt="map"
+                onLoad={() => setImageLoaded(true)}
+              />
             </Slide>
           </Background>
         </div>
       </View>
+      <View />
     </>
   );
 };
