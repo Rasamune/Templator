@@ -13,7 +13,7 @@ const Slide = ({
   const [slideIn, setSlideIn] = useState(false);
   const [loaded, setIsLoaded] = useState(false);
   const [animating, setIsAnimating] = useState(lazyload);
-  const [ref, entry] = useIntersect({
+  const [ref, entry, disconnectObserver] = useIntersect({
     rootMargin: `0% 0% ${intersectOffset} 0%`,
   });
   const durationInSeconds = `${animationSpeed.toString().slice(0, 1)}s`;
@@ -36,9 +36,13 @@ const Slide = ({
   const nestedChildren = getNestedChildren(children.props.children);
 
   useEffect(() => {
+    if (!isVisible) console.log('Loaded');
+
     /* Slide in when element is intersecting viewport */
     if (isVisible) {
       setSlideIn(true);
+      console.log('Slide In');
+      disconnectObserver();
     }
 
     /* If lazy loading is enabled */
@@ -54,7 +58,14 @@ const Slide = ({
         setIsAnimating(false);
       }, animationSpeed);
     }
-  }, [isVisible, waitfor, animating, lazyload, animationSpeed]);
+  }, [
+    isVisible,
+    waitfor,
+    animating,
+    lazyload,
+    animationSpeed,
+    disconnectObserver,
+  ]);
 
   const slideInClasses = `${classes.slide} ${slideIn ? classes.animate : ''}`;
   const lazyLoadClasses = `${lazyload ? classes.lazyload : ''} ${
