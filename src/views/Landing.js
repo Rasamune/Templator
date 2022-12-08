@@ -33,7 +33,7 @@ const Landing = () => {
               vehicula. Etiam sagittis felis quis arcu porta, id gravida nulla
               elementum.
             </p>
-            <Slide intersectOffset="-30%" lazyload={true} waitfor={imageLoaded}>
+            <Slide lazyload={true} waitfor={imageLoaded}>
               <button className={classes.button} onClick={buttonClickHandler}>
                 Click Here
               </button>
