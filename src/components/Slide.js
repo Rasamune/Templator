@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
+/* useIntersect hook required to animate when viewport reaches element */
 import useIntersect from '../hooks/useIntersect';
 import classes from './Slide.module.css';
 
 const Slide = ({
   children,
-  xorigin = '0',
-  yorigin = '0',
   animationSpeed = 1000,
   intersectOffset = '0%',
   lazyload = false,
@@ -19,6 +18,8 @@ const Slide = ({
 
   const durationInSeconds = `${animationSpeed.toString().slice(0, 1)}s`;
   const isVisible = entry.isIntersecting;
+
+  console.log(children);
 
   useEffect(() => {
     /* Slide in when element is intersecting viewport */
@@ -41,16 +42,15 @@ const Slide = ({
     }
   }, [isVisible, waitfor, animating, lazyload, animationSpeed]);
 
-  const slideClasses = `${classes.slide} ${slideIn ? classes.animate : ''}`;
-  const lazyClasses = `${lazyload ? classes.lazyload : ''} ${
+  const slideInClasses = `${classes.slide} ${slideIn ? classes.animate : ''}`;
+  const lazyLoadClasses = `${lazyload ? classes.lazyload : ''} ${
     loaded ? classes.loaded : ''
   }`;
 
   return (
     <div
-      className={`${slideClasses} ${lazyClasses}`}
+      className={`${slideInClasses} ${lazyLoadClasses}`}
       style={{
-        transformOrigin: `${xorigin} ${yorigin}`,
         transitionDuration: durationInSeconds,
       }}
       ref={ref}

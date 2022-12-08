@@ -1,6 +1,7 @@
 .slide {
   height: 100%;
   transform: scaleX(0);
+  transform-origin: 0%;
   transition: all 1s ease;
 }
 
