@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import classes from './Landing.module.css';
 import View from '../components/View';
 import Container from '../components/Container';
@@ -7,8 +6,6 @@ import Slide from '../components/Slide';
 import mapImage from '../assets/map.png';
 
 const Landing = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
   return (
     <>
       <View />
@@ -33,12 +30,10 @@ const Landing = () => {
             <Slide>
               <div className={classes.blackbox} />
             </Slide>
-            <Slide lazyload={true} waitfor={imageLoaded}>
-              <img
-                src={mapImage}
-                alt="map"
-                onLoad={() => setImageLoaded(true)}
-              />
+            <Slide lazyload={true}>
+              <div className={classes.mapimage}>
+                <img src={mapImage} alt="map" />
+              </div>
             </Slide>
           </Background>
         </div>

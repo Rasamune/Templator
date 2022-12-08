@@ -8,10 +8,10 @@ const Slide = ({
   animationSpeed = 1000,
   intersectOffset = '-15%',
   lazyload = false,
-  waitfor = true,
 }) => {
   const [slideIn, setSlideIn] = useState(false);
   const [loaded, setIsLoaded] = useState(false);
+  const [imageLoading, setImageLoading] = useState(lazyload);
   const [animating, setIsAnimating] = useState(lazyload);
   const [ref, entry, disconnectObserver] = useIntersect({
     rootMargin: `0% 0% ${intersectOffset} 0%`,
@@ -21,13 +21,31 @@ const Slide = ({
   const InheritedElementType = children.type;
   const inheritedProps = children.props;
   const inheritedClasses = children.props.className;
+  let hasImageComponent = false;
 
   const getNestedChildren = children => {
     return Children.map(children, child => {
       if (!React.isValidElement(child)) return child;
 
+      let childProps = { ...child.props };
+
+      if (child.type === 'img' && isVisible === false) {
+        hasImageComponent = true;
+        return;
+      }
+
+      if (child.type === 'img') {
+        hasImageComponent = true;
+        childProps = {
+          ...child.props,
+          onLoad: () => {
+            setImageLoading(false);
+          },
+        };
+      }
+
       return React.cloneElement(child, {
-        ...child.props,
+        ...childProps,
         children: getNestedChildren(child.props.children),
       });
     });
@@ -45,17 +63,28 @@ const Slide = ({
     /* If lazy loading is enabled */
     if (lazyload && isVisible) {
       /* Wait for asset to load */
-      if (waitfor && !animating) {
+      if ((!imageLoading && !animating) || (!hasImageComponent && !animating)) {
         setIsLoaded(true);
         return;
       }
 
       /* Animate Lazyloader */
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, animationSpeed);
+      if (animating) {
+        setTimeout(() => {
+          setIsAnimating(false);
+        }, animationSpeed);
+      }
     }
-  }, [isVisible, waitfor, animating, lazyload, animationSpeed]);
+  }, [
+    isVisible,
+    animating,
+    lazyload,
+    animationSpeed,
+    disconnectObserver,
+    slideIn,
+    hasImageComponent,
+    imageLoading,
+  ]);
 
   const slideInClasses = `${classes.slide} ${slideIn ? classes.animate : ''}`;
   const lazyLoadClasses = `${lazyload ? classes.lazyload : ''} ${
