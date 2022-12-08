@@ -36,12 +36,9 @@ const Slide = ({
   const nestedChildren = getNestedChildren(children.props.children);
 
   useEffect(() => {
-    if (!isVisible) console.log('Loaded');
-
     /* Slide in when element is intersecting viewport */
-    if (isVisible) {
+    if (isVisible && !slideIn) {
       setSlideIn(true);
-      console.log('Slide In');
       disconnectObserver();
     }
 
@@ -58,14 +55,7 @@ const Slide = ({
         setIsAnimating(false);
       }, animationSpeed);
     }
-  }, [
-    isVisible,
-    waitfor,
-    animating,
-    lazyload,
-    animationSpeed,
-    disconnectObserver,
-  ]);
+  }, [isVisible, waitfor, animating, lazyload, animationSpeed]);
 
   const slideInClasses = `${classes.slide} ${slideIn ? classes.animate : ''}`;
   const lazyLoadClasses = `${lazyload ? classes.lazyload : ''} ${

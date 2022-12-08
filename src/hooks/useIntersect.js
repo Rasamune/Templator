@@ -4,8 +4,6 @@ const useIntersect = ({ root = null, rootMargin = '0%', threshold = 0 }) => {
   const [entry, setEntry] = useState([]);
   const [node, setNode] = useState(null);
 
-  console.log(node);
-
   const observer = useRef(null);
 
   useEffect(() => {
