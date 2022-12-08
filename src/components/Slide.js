@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { Children, useEffect, useState } from 'react';
 /* useIntersect hook required to animate when viewport reaches element */
 import useIntersect from '../hooks/useIntersect';
 import classes from './Slide.module.css';
@@ -19,7 +19,22 @@ const Slide = ({
   const durationInSeconds = `${animationSpeed.toString().slice(0, 1)}s`;
   const isVisible = entry.isIntersecting;
 
-  console.log(children);
+  const InheritedElementType = children.type;
+  const inheritedProps = children.props;
+  const inheritedClasses = children.props.className;
+
+  const getNestedChildren = children => {
+    return Children.map(children, (child, index) => {
+      if (!React.isValidElement(child)) return child;
+
+      return React.cloneElement(child, {
+        ...child.props,
+        children: getNestedChildren(child.props.children),
+      });
+    });
+  };
+
+  const nestedChildren = getNestedChildren(children.props.children);
 
   useEffect(() => {
     /* Slide in when element is intersecting viewport */
@@ -48,15 +63,16 @@ const Slide = ({
   }`;
 
   return (
-    <div
-      className={`${slideInClasses} ${lazyLoadClasses}`}
+    <InheritedElementType
+      {...inheritedProps}
+      className={`${inheritedClasses} ${slideInClasses} ${lazyLoadClasses}`}
       style={{
         transitionDuration: durationInSeconds,
       }}
       ref={ref}
     >
-      {children}
-    </div>
+      {nestedChildren}
+    </InheritedElementType>
   );
 };
 

@@ -8,6 +8,10 @@ import Slide from '../components/Slide';
 const Landing = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
+  const buttonClickHandler = () => {
+    console.log('click');
+  };
+
   useEffect(() => {
     if (!imageLoaded) {
       setTimeout(() => {
@@ -15,6 +19,7 @@ const Landing = () => {
       }, 2000);
     }
   }, [imageLoaded]);
+
   return (
     <>
       <View />
@@ -28,22 +33,16 @@ const Landing = () => {
               vehicula. Etiam sagittis felis quis arcu porta, id gravida nulla
               elementum.
             </p>
-            <div className={classes.buttonarea}>
-              <Slide
-                intersectOffset="-30%"
-                lazyload={true}
-                waitfor={imageLoaded}
-              >
-                <button className={classes.button}>Click Here</button>
-              </Slide>
-            </div>
+            <Slide intersectOffset="-30%" lazyload={true} waitfor={imageLoaded}>
+              <button className={classes.button} onClick={buttonClickHandler}>
+                Click Here
+              </button>
+            </Slide>
           </Container>
           <Background>
-            <div className={classes.background}>
-              <Slide>
-                <div className={classes.greybox} />
-              </Slide>
-            </div>
+            <Slide>
+              <div className={classes.background} />
+            </Slide>
           </Background>
         </div>
       </View>
