@@ -25,14 +25,14 @@ h1 {
 
 button {
   margin: 0;
-  padding: 0.5rem 1rem;
+  padding: 1rem 6rem;
   border: 0;
   background-color: transparent;
   font-size: 1rem;
   cursor: pointer;
+  font-weight: 600;
 }
 
 img {
-  height: 100%;
-  width: 100%;
+  object-fit: cover;
 }

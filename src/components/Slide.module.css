@@ -19,9 +19,9 @@
   display: block;
   content: ' ';
   background-color: black;
-  width: 100%;
+  width: 100.1%;
   height: 100%;
-  transform-origin: 100%;
+  transform-origin: right;
   transition: inherit;
 }
 

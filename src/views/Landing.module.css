@@ -44,7 +44,11 @@
 }
 
 .mapimage {
-  height: 50%;
   width: 50%;
-  display: block;
+  height: 50%;
+  overflow: hidden;
+}
+
+.mapimage img {
+  width: 100%;
 }

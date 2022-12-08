@@ -29,12 +29,12 @@ const Slide = ({
 
       let childProps = { ...child.props };
 
-      if (child.type === 'img' && isVisible === false) {
+      if (child.type === 'img' && isVisible === false && lazyload) {
         hasImageComponent = true;
         return;
       }
 
-      if (child.type === 'img') {
+      if (child.type === 'img' && lazyload) {
         hasImageComponent = true;
         childProps = {
           ...child.props,
