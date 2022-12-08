@@ -29,7 +29,13 @@
   position: absolute;
   width: 90%;
   height: 50%;
-  background-color: #eceae8;
   left: 5%;
   top: 40%;
+}
+
+.background .greybox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #eceae8;
 }

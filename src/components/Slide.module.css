@@ -4,6 +4,23 @@
   transition: all 1s ease;
 }
 
-.slide.in {
+.slide.animate {
   transform: scaleX(1);
+}
+
+.lazyload::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: ' ';
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  transform-origin: 100%;
+  transition: inherit;
+}
+
+.lazyload.loaded::after {
+  transform: scaleX(0);
 }

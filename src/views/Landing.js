@@ -1,11 +1,20 @@
+import { useEffect, useState } from 'react';
 import classes from './Landing.module.css';
 import View from '../components/View';
 import Container from '../components/Container';
 import Background from '../components/Background';
 import Slide from '../components/Slide';
-import LazyLoad from '../components/LazyLoad';
 
 const Landing = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!imageLoaded) {
+      setTimeout(() => {
+        setImageLoaded(true);
+      }, 2000);
+    }
+  }, [imageLoaded]);
   return (
     <>
       <View />
@@ -20,22 +29,21 @@ const Landing = () => {
               elementum.
             </p>
             <div className={classes.buttonarea}>
-              <Slide intersectOffset="-30%">
-                <button className={classes.button}>
-                  {/* 
-                    MOVE LAZY LOADING INTO SLIDE COMPONENT
-                    - IMPLEMENT CHECK FOR LOADING ASSESTS (ie IMAGE)
-                  */}
-                  <LazyLoad />
-                  Click Here
-                </button>
+              <Slide
+                intersectOffset="-30%"
+                lazyload={true}
+                waitfor={imageLoaded}
+              >
+                <button className={classes.button}>Click Here</button>
               </Slide>
             </div>
           </Container>
           <Background>
-            <Slide xorigin="5%">
-              <div className={classes.background}></div>
-            </Slide>
+            <div className={classes.background}>
+              <Slide>
+                <div className={classes.greybox} />
+              </Slide>
+            </div>
           </Background>
         </div>
       </View>

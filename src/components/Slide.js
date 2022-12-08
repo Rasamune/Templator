@@ -8,23 +8,47 @@ const Slide = ({
   yorigin = '0',
   animationSpeed = 1000,
   intersectOffset = '0%',
+  lazyload = false,
+  waitfor = true,
 }) => {
   const [slideIn, setSlideIn] = useState(false);
-  const durationInSeconds = `${animationSpeed.toString().slice(0, 1)}s`;
+  const [loaded, setIsLoaded] = useState(false);
+  const [animating, setIsAnimating] = useState(lazyload);
+
   const [ref, entry] = useIntersect({ rootMargin: intersectOffset });
+
+  const durationInSeconds = `${animationSpeed.toString().slice(0, 1)}s`;
   const isVisible = entry.isIntersecting;
 
-  console.log(entry);
-
   useEffect(() => {
+    /* Slide in when element is intersecting viewport */
     if (isVisible) {
       setSlideIn(true);
     }
-  }, [isVisible]);
+
+    /* If lazy loading is enabled */
+    if (lazyload) {
+      /* Wait for asset to load */
+      if (waitfor && !animating) {
+        setIsLoaded(true);
+        return;
+      }
+
+      /* Animated Lazyloader */
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, animationSpeed);
+    }
+  }, [isVisible, waitfor, animating, lazyload, animationSpeed]);
+
+  const slideClasses = `${classes.slide} ${slideIn ? classes.animate : ''}`;
+  const lazyClasses = `${lazyload ? classes.lazyload : ''} ${
+    loaded ? classes.loaded : ''
+  }`;
 
   return (
     <div
-      className={`${classes.slide} ${slideIn ? classes.in : ''}`}
+      className={`${slideClasses} ${lazyClasses}`}
       style={{
         transformOrigin: `${xorigin} ${yorigin}`,
         transitionDuration: durationInSeconds,
