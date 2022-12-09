@@ -10,43 +10,46 @@ const Slide = ({
   lazyload = false,
 }) => {
   const [slideIn, setSlideIn] = useState(false);
-  const [loaded, setIsLoaded] = useState(false);
   const [imageLoading, setImageLoading] = useState(lazyload);
-  const [animating, setIsAnimating] = useState(lazyload);
-  const [ref, entry, disconnectObserver] = useIntersect({
+  const [assetLoaded, setAssetLoaded] = useState(false);
+  const [lazyLoaderAnimating, setLazyLoaderAnimating] = useState(lazyload);
+  const [ref, entry, disconnectIntersectObserver] = useIntersect({
     rootMargin: `0% 0% ${intersectOffset} 0%`,
   });
   const durationInSeconds = `${animationSpeed.toString().slice(0, 1)}s`;
-  const isVisible = entry.isIntersecting;
+  let hasImageElement = false;
+
+  /* Get element and props from children to be inherited by a new element with the Slide props */
+  const isVisibleInViewport = entry.isIntersecting;
   const InheritedElementType = children.type;
   const inheritedProps = children.props;
   const inheritedClasses = children.props.className;
-  let hasImageComponent = false;
 
   const getNestedChildren = children => {
-    return Children.map(children, child => {
-      if (!React.isValidElement(child)) return child;
+    return Children.map(children, childNode => {
+      if (!React.isValidElement(childNode)) return childNode;
 
-      let childProps = { ...child.props };
+      let childProps = { ...childNode.props };
 
-      if (child.type === 'img' && isVisible === false && lazyload) {
-        hasImageComponent = true;
+      /* If lazyload and child is an IMG element, do not render the element immediately, wait for intersect */
+      if (lazyload && childNode.type === 'img' && !isVisibleInViewport) {
+        hasImageElement = true;
         return;
       }
 
-      if (child.type === 'img' && lazyload) {
-        hasImageComponent = true;
+      if (lazyload && childNode.type === 'img') {
+        hasImageElement = true;
         childProps = {
-          ...child.props,
+          ...childNode.props,
           onLoad: () => {
             setImageLoading(false);
           },
         };
       }
 
-      return React.cloneElement(child, {
+      return React.cloneElement(childNode, {
         ...childProps,
-        children: getNestedChildren(child.props.children),
+        children: getNestedChildren(childNode.props.children),
       });
     });
   };
@@ -55,40 +58,43 @@ const Slide = ({
 
   useEffect(() => {
     /* Slide in when element is intersecting viewport */
-    if (isVisible && !slideIn) {
+    if (isVisibleInViewport && !slideIn) {
       setSlideIn(true);
-      disconnectObserver();
+      disconnectIntersectObserver();
     }
 
     /* If lazy loading is enabled */
-    if (lazyload && isVisible) {
+    if (lazyload && isVisibleInViewport) {
       /* Wait for asset to load */
-      if ((!imageLoading && !animating) || (!hasImageComponent && !animating)) {
-        setIsLoaded(true);
+      if (
+        (!imageLoading && !lazyLoaderAnimating) ||
+        (!hasImageElement && !lazyLoaderAnimating)
+      ) {
+        setAssetLoaded(true);
         return;
       }
 
       /* Animate Lazyloader */
-      if (animating) {
+      if (lazyLoaderAnimating) {
         setTimeout(() => {
-          setIsAnimating(false);
+          setLazyLoaderAnimating(false);
         }, animationSpeed);
       }
     }
   }, [
-    isVisible,
-    animating,
+    isVisibleInViewport,
+    slideIn,
+    lazyLoaderAnimating,
+    imageLoading,
+    disconnectIntersectObserver,
     lazyload,
     animationSpeed,
-    disconnectObserver,
-    slideIn,
-    hasImageComponent,
-    imageLoading,
+    hasImageElement,
   ]);
 
   const slideInClasses = `${classes.slide} ${slideIn ? classes.animate : ''}`;
   const lazyLoadClasses = `${lazyload ? classes.lazyload : ''} ${
-    loaded ? classes.loaded : ''
+    assetLoaded ? classes.loaded : ''
   }`;
 
   return (
