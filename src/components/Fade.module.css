@@ -1,0 +1,10 @@
+.fade {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1s ease-out;
+}
+
+.fade.fadein {
+  transform: translateY(0);
+  opacity: 1;
+}

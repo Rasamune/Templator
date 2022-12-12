@@ -1,9 +1,10 @@
-import classes from './Landing.module.css';
-import View from '../components/View';
-import Container from '../components/Container';
-import Background from '../components/Background';
-import Slide from '../components/Slide';
-import mapImage from '../assets/map.png';
+import classes from "./Landing.module.css";
+import View from "../components/View";
+import Container from "../components/Container";
+import Background from "../components/Background";
+import Fade from "../components/Fade";
+import Slide from "../components/Slide";
+import mapImage from "../assets/map.png";
 
 const Landing = () => {
   return (
@@ -12,7 +13,9 @@ const Landing = () => {
       <View id="landing">
         <div className={classes.landing}>
           <Container>
-            <h1>ABOUT</h1>
+            <Fade>
+              <h1>ABOUT</h1>
+            </Fade>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque venenatis commodo commodo. Mauris tempus aliquet
