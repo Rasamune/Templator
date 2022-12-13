@@ -100,15 +100,18 @@ const Slide = ({
     assetLoaded ? classes.loaded : ''
   }`;
 
+  const slideProps = {
+    ...inheritedProps,
+    className: `${inheritedClasses} ${slideInClasses} ${lazyLoadClasses}`,
+    style:
+      animationSpeed === 1000
+        ? null
+        : { transitionDuration: durationInSeconds },
+    ref: ref,
+  };
+
   return (
-    <InheritedElementType
-      {...inheritedProps}
-      className={`${inheritedClasses} ${slideInClasses} ${lazyLoadClasses}`}
-      style={{
-        transitionDuration: durationInSeconds,
-      }}
-      ref={ref}
-    >
+    <InheritedElementType {...slideProps}>
       {nestedChildren}
     </InheritedElementType>
   );

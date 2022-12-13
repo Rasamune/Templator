@@ -15,16 +15,17 @@ const Landing = () => {
           <Container>
             <Fade>
               <h1>ABOUT</h1>
+
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque venenatis commodo commodo. Mauris tempus aliquet
+                vehicula. Etiam sagittis felis quis arcu porta, id gravida nulla
+                elementum.
+              </p>
+              <Slide lazyload={true}>
+                <button className={classes.button}>Click Here</button>
+              </Slide>
             </Fade>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque venenatis commodo commodo. Mauris tempus aliquet
-              vehicula. Etiam sagittis felis quis arcu porta, id gravida nulla
-              elementum.
-            </p>
-            <Slide lazyload={true}>
-              <button className={classes.button}>Click Here</button>
-            </Slide>
           </Container>
           <Background>
             <Slide>

@@ -1,11 +1,11 @@
-import React, { Children, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import useIntersect from '../hooks/useIntersect';
 import classes from './Fade.module.css';
 
 const Fade = ({
   children,
   animationSpeed = 1000,
-  intersectOffset = '-15%',
+  intersectOffset = '15%',
   direction = 'bottom',
 }) => {
   const [fadeIn, setFadeIn] = useState(false);
@@ -19,24 +19,6 @@ const Fade = ({
 
   /* Get element and props from children to be inherited by a new element with the Slide props */
   const isVisibleInViewport = entry.isIntersecting;
-  const InheritedElementType = children.type;
-  const inheritedProps = children.props;
-  const inheritedClasses = children.props.className
-    ? children.props.className
-    : '';
-
-  const getNestedChildren = children => {
-    return Children.map(children, childNode => {
-      if (!React.isValidElement(childNode)) return childNode;
-
-      return React.cloneElement(childNode, {
-        ...childNode.props,
-        children: getNestedChildren(childNode.props.children),
-      });
-    });
-  };
-
-  const nestedChildren = getNestedChildren(children.props.children);
 
   useEffect(() => {
     if (isVisibleInViewport && !fadeIn) {
@@ -49,18 +31,16 @@ const Fade = ({
     fadeIn ? classes.animate : ''
   }`;
 
-  return (
-    <InheritedElementType
-      {...inheritedProps}
-      className={`${inheritedClasses} ${fadeInClasses}`}
-      style={{
-        transitionDuration: durationInSeconds,
-      }}
-      ref={ref}
-    >
-      {nestedChildren}
-    </InheritedElementType>
-  );
+  const fadeProps = {
+    className: fadeInClasses,
+    style:
+      animationSpeed === 1000
+        ? null
+        : { transitionDuration: durationInSeconds },
+    ref: ref,
+  };
+
+  return <div {...fadeProps}>{children}</div>;
 };
 
 export default Fade;
