@@ -1,10 +1,10 @@
-import classes from "./Landing.module.css";
-import View from "../components/View";
-import Container from "../components/Container";
-import Background from "../components/Background";
-import Fade from "../components/Fade";
-import Slide from "../components/Slide";
-import mapImage from "../assets/map.png";
+import classes from './Landing.module.css';
+import View from '../components/View';
+import Container from '../components/Container';
+import Background from '../components/Background';
+import Fade from '../components/Fade';
+import Slide from '../components/Slide';
+import mapImage from '../assets/map.png';
 
 const Landing = () => {
   return (

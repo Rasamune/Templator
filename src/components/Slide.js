@@ -16,7 +16,10 @@ const Slide = ({
   const [ref, entry, disconnectIntersectObserver] = useIntersect({
     rootMargin: `0% 0% ${intersectOffset} 0%`,
   });
-  const durationInSeconds = `${animationSpeed.toString().slice(0, 1)}s`;
+  const durationInSeconds =
+    animationSpeed >= 1000
+      ? `${animationSpeed.toString().slice(0, 1)}s`
+      : `.${animationSpeed.toString().slice(0, 1)}s`;
   let hasImageElement = false;
 
   /* Get element and props from children to be inherited by a new element with the Slide props */
