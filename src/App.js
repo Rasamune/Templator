@@ -1,13 +1,13 @@
 import Header from './components/Header';
 import Landing from './views/Landing';
-import About from './views/About';
+import Features from './views/Features';
 
 function App() {
   return (
     <>
       <Header />
       <Landing />
-      <About />
+      <Features />
     </>
   );
 }

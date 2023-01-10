@@ -1,0 +1,51 @@
+.features {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.features h1 {
+  text-align: center;
+}
+
+.features p {
+  text-align: center;
+}
+
+.features .buttonarea {
+  display: flex;
+  justify-content: center;
+}
+
+.features .button {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.greybox {
+  position: absolute;
+  width: 80%;
+  height: 50%;
+  left: 10%;
+  top: 20%;
+  background-color: #eceae8;
+}
+
+.purplebox {
+  position: absolute;
+  width: 60%;
+  height: 30%;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(85, 0, 67);
+}
+
+.pinkbox {
+  width: 75%;
+  height: 30%;
+  overflow: hidden;
+  background-color: rgb(226, 43, 104);
+}
