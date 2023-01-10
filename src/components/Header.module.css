@@ -1,0 +1,27 @@
+header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-wrapper {
+  margin: 2rem;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.pages {
+  float: right;
+}
+
+.pages a {
+  margin-left: 1rem;
+}
+
+header a {
+  color: white;
+}

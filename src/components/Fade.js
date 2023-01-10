@@ -5,7 +5,7 @@ import classes from './Fade.module.css';
 const Fade = ({
   children,
   animationSpeed = 1000,
-  intersectOffset = '15%',
+  intersectOffset = '0%',
   direction = 'bottom',
 }) => {
   const [fadeIn, setFadeIn] = useState(false);

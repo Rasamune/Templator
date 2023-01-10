@@ -2,48 +2,37 @@ import classes from './Landing.module.css';
 import View from '../components/View';
 import Container from '../components/Container';
 import Background from '../components/Background';
+import landingImage from '../assets/landing-img.jpg';
 import Fade from '../components/Fade';
 import Slide from '../components/Slide';
-import mapImage from '../assets/map.png';
 
 const Landing = () => {
   return (
-    <>
-      <View />
-      <View id="landing">
-        <div className={classes.landing}>
-          <Container>
-            <Fade>
-              <h1>ABOUT</h1>
-
+    <View id="landing">
+      <div className={classes.landing}>
+        <Container>
+          <Fade>
+            <div className={classes.contents}>
+              <h1>Templator</h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque venenatis commodo commodo. Mauris tempus aliquet
-                vehicula. Etiam sagittis felis quis arcu porta, id gravida nulla
-                elementum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+                elit ac urna aliquet imperdiet. Etiam ultrices felis dolor, at
+                commodo nisi aliquet a. Sed mollis venenatis lacinia. Sed nec
+                est tortor.
               </p>
-              <Slide lazyload={true}>
-                <button className={classes.button}>Click Here</button>
+              <Slide lazyload="true">
+                <button>Click Here</button>
               </Slide>
-            </Fade>
-          </Container>
-          <Background>
-            <Slide>
-              <div className={classes.greybox} />
-            </Slide>
-            <Slide>
-              <div className={classes.blackbox} />
-            </Slide>
-            <Slide lazyload={true}>
-              <div className={classes.mapimage}>
-                <img src={mapImage} alt="map" />
-              </div>
-            </Slide>
-          </Background>
-        </div>
-      </View>
-      <View />
-    </>
+            </div>
+          </Fade>
+        </Container>
+        <Background>
+          <div className={classes['background-img']}>
+            <img src={landingImage} alt="Landing" />
+          </div>
+        </Background>
+      </div>
+    </View>
   );
 };
 

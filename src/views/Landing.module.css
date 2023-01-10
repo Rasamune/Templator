@@ -3,52 +3,54 @@
   justify-content: center;
   flex-direction: column;
   height: 100%;
+  width: 100%;
+}
+
+.landing .contents {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  padding-left: 4rem;
 }
 
 .landing h1 {
-  text-align: center;
+  font-size: 5rem;
+  color: white;
+  margin: 1rem 0;
 }
 
 .landing p {
-  text-align: center;
+  color: white;
+  margin: 1rem 0;
 }
 
-.landing .buttonarea {
-  display: flex;
-  justify-content: center;
+.landing button {
+  width: auto;
+  color: white;
+  background-color: rgb(226, 43, 104);
+  margin: 1rem auto 1rem 0;
 }
 
-.landing .button {
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  border: 1px solid black;
-}
-
-.greybox {
-  position: absolute;
-  width: 90%;
-  height: 50%;
-  left: 0;
-  top: 40%;
-  background-color: #eceae8;
-}
-
-.blackbox {
-  position: absolute;
-  width: 60%;
-  height: 30%;
-  right: 0;
-  top: 64%;
-  background-color: grey;
-}
-
-.mapimage {
-  width: 50%;
-  height: 50%;
+.background-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-.mapimage img {
+.background-img:after {
+  content: '';
+  background: rgba(0, 0, 0, 0.5);
   width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.background-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

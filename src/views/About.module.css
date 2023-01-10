@@ -1,0 +1,54 @@
+.about {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.about h1 {
+  text-align: center;
+}
+
+.about p {
+  text-align: center;
+}
+
+.about .buttonarea {
+  display: flex;
+  justify-content: center;
+}
+
+.about .button {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.greybox {
+  position: absolute;
+  width: 90%;
+  height: 50%;
+  left: 0;
+  top: 40%;
+  background-color: #eceae8;
+}
+
+.blackbox {
+  position: absolute;
+  width: 60%;
+  height: 30%;
+  right: 0;
+  top: 64%;
+  background-color: grey;
+}
+
+.mapimage {
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+}
+
+.mapimage img {
+  width: 100%;
+}
