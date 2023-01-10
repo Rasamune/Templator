@@ -1,51 +1,60 @@
 .features {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   height: 100%;
 }
 
 .features h1 {
-  text-align: center;
+  text-align: left;
+  margin: 7rem 0rem 7rem 3rem;
+  color: white;
 }
 
-.features p {
-  text-align: center;
-}
-
-.features .buttonarea {
+.featureslist {
   display: flex;
   justify-content: center;
+  gap: 2rem;
+  margin: 1rem;
 }
 
-.features .button {
-  display: block;
+.featureicon {
+  width: 5rem;
+  height: 5rem;
+  background-color: rgb(226, 43, 104);
+  margin: 0 auto 1rem;
+}
+
+.featureitem {
+  flex: 1 1 0;
   text-align: center;
-  margin: 0 auto;
-  border: 1px solid black;
 }
 
-.greybox {
-  position: absolute;
-  width: 80%;
-  height: 50%;
-  left: 10%;
-  top: 20%;
-  background-color: #eceae8;
+.featureitem h3 {
+  margin: 1rem 0;
 }
 
-.purplebox {
-  position: absolute;
-  width: 60%;
-  height: 30%;
-  right: 0;
-  bottom: 0;
-  background-color: rgb(85, 0, 67);
+.features button {
+  width: auto;
+  color: white;
+  background-color: rgb(226, 43, 104);
+  margin: 3rem auto 1rem auto;
+  display: block;
 }
 
 .pinkbox {
+  position: absolute;
   width: 75%;
-  height: 30%;
+  height: 11rem;
+  top: 2rem;
   overflow: hidden;
   background-color: rgb(226, 43, 104);
+}
+
+.blackbox {
+  position: absolute;
+  width: 70%;
+  height: 11rem;
+  top: 4rem;
+  overflow: hidden;
+  background-color: black;
 }

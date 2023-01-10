@@ -7,32 +7,54 @@ import Slide from '../components/Slide';
 
 const Features = () => {
   return (
-    <View id="about">
+    <View id="features">
       <div className={classes.features}>
         <Container>
+          <h1>FEATURES</h1>
           <Fade>
-            <h1>FEATURES</h1>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque venenatis commodo commodo. Mauris tempus aliquet
-              vehicula. Etiam sagittis felis quis arcu porta, id gravida nulla
-              elementum.
-            </p>
+            <div className={classes.featureslist}>
+              <div className={classes.featureitem}>
+                <div className={classes.featureicon}></div>
+                <h3>Lorem</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                  a elit ac urna aliquet imperdiet. Etiam ultrices felis dolor,
+                  at commodo nisi aliquet a.
+                </p>
+              </div>
+              <div className={classes.featureitem}>
+                <div className={classes.featureicon}></div>
+                <h3>Pellentesque</h3>
+                <p>
+                  Pellentesque cursus tempus condimentum. Ut purus quam,
+                  scelerisque eget nisi ac, luctus aliquet velit. In imperdiet
+                  ipsum ex, eget elementum lacus accumsan sit amet.
+                </p>
+              </div>
+              <div className={classes.featureitem}>
+                <div className={classes.featureicon}></div>
+                <h3>Nullam</h3>
+                <p>
+                  Nullam molestie sagittis urna et lobortis. Fusce neque augue,
+                  facilisis eget est sed, efficitur egestas metus. Nunc neque
+                  risus, condimentum vitae rutrum ac, mattis non dui.
+                </p>
+              </div>
+            </div>
             {/* <Slide lazyload={true}>
               <button className={classes.button}>Click Here</button>
             </Slide> */}
           </Fade>
+          <Slide lazyload="true" wait="1000" animationSpeed="750">
+            <button>See More</button>
+          </Slide>
         </Container>
         <Background>
           <Slide>
-            <div className={classes.greybox} />
-          </Slide>
-          <Slide>
-            <div className={classes.purplebox} />
-          </Slide>
-          <Slide>
             <div className={classes.pinkbox} />
+          </Slide>
+          <Slide wait="600">
+            <div className={classes.blackbox} />
           </Slide>
         </Background>
       </div>

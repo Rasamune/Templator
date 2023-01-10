@@ -4,6 +4,7 @@ import Container from '../components/Container';
 import Background from '../components/Background';
 import Fade from '../components/Fade';
 import Slide from '../components/Slide';
+import mapImage from '../assets/map.png';
 
 const About = () => {
   return (
@@ -26,7 +27,15 @@ const About = () => {
         </Container>
         <Background>
           <Slide>
+            <div className={classes.greybox} />
+          </Slide>
+          <Slide>
             <div className={classes.blackbox} />
+          </Slide>
+          <Slide lazyload={true}>
+            <div className={classes.mapimage}>
+              <img src={mapImage} alt="map" />
+            </div>
           </Slide>
         </Background>
       </div>

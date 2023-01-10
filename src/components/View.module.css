@@ -1,5 +1,6 @@
 .view {
   height: 100vh;
+  min-height: 45rem;
   position: relative;
   z-index: 10;
 }

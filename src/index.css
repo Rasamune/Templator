@@ -1,3 +1,7 @@
+html {
+  font-size: 20px;
+}
+
 body {
   margin: 0;
   font-family: 'Open Sans', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,7 +9,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 20px;
 }
 
 h1,
@@ -19,7 +22,7 @@ p {
 }
 
 h1 {
-  font-size: 8rem;
+  font-size: 4rem;
   font-weight: 900;
 }
 
@@ -29,7 +32,7 @@ a {
 
 button {
   margin: auto;
-  padding: 1.15rem 3rem;
+  padding: 1rem 2.5rem;
   border: 0;
   border-radius: 0.15rem;
   background-color: transparent;
@@ -39,4 +42,10 @@ button {
 
 img {
   object-fit: cover;
+}
+
+@media (max-width: 950px) {
+  html {
+    font-size: 18px;
+  }
 }

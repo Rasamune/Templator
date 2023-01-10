@@ -6,12 +6,10 @@
 }
 
 .about h1 {
-  color: white;
   text-align: center;
 }
 
 .about p {
-  color: white;
   text-align: center;
 }
 
@@ -21,18 +19,36 @@
 }
 
 .about .button {
-  color: white;
   display: block;
   text-align: center;
   margin: 0 auto;
   border: 1px solid black;
 }
 
+.greybox {
+  position: absolute;
+  width: 90%;
+  height: 50%;
+  left: 0;
+  top: 40%;
+  background-color: #eceae8;
+}
+
 .blackbox {
   position: absolute;
+  width: 60%;
+  height: 30%;
+  right: 0;
+  top: 64%;
+  background-color: grey;
+}
+
+.mapimage {
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+}
+
+.mapimage img {
   width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background-color: black;
 }

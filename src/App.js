@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import Landing from './views/Landing';
 import Features from './views/Features';
+import About from './views/About';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <Landing />
       <Features />
+      <About />
     </>
   );
 }
