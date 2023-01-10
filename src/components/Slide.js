@@ -63,7 +63,7 @@ const Slide = ({
 
   useEffect(() => {
     /* If wait time is set, wait for timer before slide in */
-    if (!waitTimer) {
+    if (isVisibleInViewport && !waitTimer) {
       /* Slide in when element is intersecting viewport */
       if (isVisibleInViewport && !slideIn) {
         setSlideIn(true);
@@ -88,7 +88,7 @@ const Slide = ({
           }, +animationSpeed);
         }
       }
-    } else {
+    } else if (isVisibleInViewport) {
       setTimeout(() => {
         setWaitTimer(false);
         console.log('test');

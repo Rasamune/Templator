@@ -41,19 +41,21 @@ const Features = () => {
                 </p>
               </div>
             </div>
-            {/* <Slide lazyload={true}>
-              <button className={classes.button}>Click Here</button>
-            </Slide> */}
+            <Slide
+              intersectOffset="0px"
+              lazyload="true"
+              wait="750"
+              animationSpeed="750"
+            >
+              <button>See More</button>
+            </Slide>
           </Fade>
-          <Slide lazyload="true" wait="1000" animationSpeed="750">
-            <button>See More</button>
-          </Slide>
         </Container>
         <Background>
           <Slide>
             <div className={classes.pinkbox} />
           </Slide>
-          <Slide wait="600">
+          <Slide wait="500">
             <div className={classes.blackbox} />
           </Slide>
         </Background>

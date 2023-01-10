@@ -20,7 +20,7 @@ const Landing = () => {
                 commodo nisi aliquet a. Sed mollis venenatis lacinia. Sed nec
                 est tortor.
               </p>
-              <Slide lazyload="true" wait="1000" animationSpeed="750">
+              <Slide lazyload="true" wait="1000" animationSpeed="500">
                 <button>Click Here</button>
               </Slide>
             </div>
