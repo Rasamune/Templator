@@ -44,7 +44,7 @@ const Features = () => {
             <Slide
               intersectOffset="0px"
               lazyload="true"
-              wait="750"
+              wait="300"
               animationSpeed="750"
             >
               <button>See More</button>

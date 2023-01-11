@@ -30,6 +30,7 @@
 .snippet .robot {
   width: 90%;
   height: 90%;
+  margin-left: 2rem;
 }
 
 .snippet .robot img {

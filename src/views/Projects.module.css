@@ -29,6 +29,17 @@
   z-index: -10;
 }
 
+.projects .contents .item:before {
+  position: absolute;
+  content: '';
+  background-color: rgb(226, 43, 104);
+  height: 85%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -9;
+}
+
 .projects .contents .item h3 {
   display: inline-block;
   position: relative;
@@ -47,25 +58,28 @@
 }
 
 .projects .contents .projectimage {
+  position: relative;
   background-color: rgb(226, 43, 104);
   height: 85%;
+  width: 100%;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .pinkbox {
   position: absolute;
   height: 8rem;
-  width: 40%;
+  width: 35%;
   background-color: rgb(226, 43, 104);
   top: 3rem;
-  left: 25%;
+  left: 30%;
 }
 
 .blackbox {
   position: absolute;
   height: 8rem;
-  width: 40%;
+  width: 35%;
   background-color: black;
   top: 4rem;
-  left: 30%;
+  left: 35%;
 }
