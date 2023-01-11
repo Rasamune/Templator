@@ -7,7 +7,7 @@ import Slide from '../components/Slide';
 
 const About = () => {
   return (
-    <View id="about">
+    <View id="about" half="true">
       <div className={classes.about}>
         <Container>
           <Fade>
@@ -20,14 +20,12 @@ const About = () => {
               elementum.
             </p>
             <Slide lazyload={true}>
-              <button className={classes.button}>Click Here</button>
+              <button className={classes.button}>Learn More</button>
             </Slide>
           </Fade>
         </Container>
         <Background>
-          {/* <Slide>
-            <div className={classes.blackbox} />
-          </Slide> */}
+          <div className={classes.greybox} />
         </Background>
       </div>
     </View>

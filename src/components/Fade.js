@@ -7,8 +7,10 @@ const Fade = ({
   animationSpeed = 1000,
   intersectOffset = '0%',
   direction = 'bottom',
+  wait = 0,
 }) => {
   const [fadeIn, setFadeIn] = useState(false);
+  const [waitTimer, setWaitTimer] = useState(wait);
   const [ref, entry, disconnectIntersectObserver] = useIntersect({
     rootMargin: `0% 0% ${intersectOffset} 0%`,
   });
@@ -21,11 +23,27 @@ const Fade = ({
   const isVisibleInViewport = entry.isIntersecting;
 
   useEffect(() => {
-    if (isVisibleInViewport && !fadeIn) {
-      setFadeIn(true);
+    /* Element is visible in the viewport and waitTimer is done (or waitTimer is not set) */
+    if (isVisibleInViewport && !waitTimer) {
       disconnectIntersectObserver();
+
+      // Fade element in
+      if (!fadeIn) {
+        setFadeIn(true); // Enabling this dynamically adds the "animate" class to the CSS
+      }
+    } else if (isVisibleInViewport) {
+      /* Element is visible in viewport and waitTimer is set, start the timer based on the "wait" variable defined */
+      setTimeout(() => {
+        setWaitTimer(false);
+      }, +wait);
     }
-  }, [fadeIn, isVisibleInViewport, disconnectIntersectObserver]);
+  }, [
+    fadeIn,
+    waitTimer,
+    isVisibleInViewport,
+    disconnectIntersectObserver,
+    wait,
+  ]);
 
   const fadeInClasses = `${classes.fade} ${classes[direction]} ${
     fadeIn ? classes.animate : ''

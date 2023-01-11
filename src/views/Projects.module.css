@@ -1,5 +1,8 @@
 .projects h1 {
+  color: white;
   text-align: center;
+  margin: 0 0 4rem;
+  padding-top: 5rem;
 }
 
 .projects .contents {
@@ -26,7 +29,43 @@
   z-index: -10;
 }
 
+.projects .contents .item h3 {
+  display: inline-block;
+  position: relative;
+  color: white;
+}
+
+.projects .contents .item h3:after {
+  position: absolute;
+  content: '';
+  background-color: black;
+  height: 140%;
+  width: 150%;
+  top: -0.5rem;
+  left: -0.75rem;
+  z-index: -10;
+}
+
 .projects .contents .projectimage {
   background-color: rgb(226, 43, 104);
   height: 85%;
+  cursor: pointer;
+}
+
+.pinkbox {
+  position: absolute;
+  height: 8rem;
+  width: 40%;
+  background-color: rgb(226, 43, 104);
+  top: 3rem;
+  left: 25%;
+}
+
+.blackbox {
+  position: absolute;
+  height: 8rem;
+  width: 40%;
+  background-color: black;
+  top: 4rem;
+  left: 30%;
 }
