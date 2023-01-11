@@ -14,7 +14,7 @@ const Slide = ({
   const [imageLoading, setImageLoading] = useState(lazyload);
   const [assetLoaded, setAssetLoaded] = useState(false);
   const [lazyLoaderAnimating, setLazyLoaderAnimating] = useState(lazyload);
-  const [waitTimer, setWaitTimer] = useState(true);
+  const [waitTimer, setWaitTimer] = useState(wait);
   const [ref, entry, disconnectIntersectObserver] = useIntersect({
     rootMargin: `0% 0% ${intersectOffset} 0%`,
   });
@@ -62,26 +62,28 @@ const Slide = ({
   const nestedChildren = getNestedChildren(children.props.children);
 
   useEffect(() => {
-    /* If wait time is set, wait for timer before slide in */
     if (isVisibleInViewport && !waitTimer) {
-      /* Slide in when element is intersecting viewport */
-      if (isVisibleInViewport && !slideIn) {
-        setSlideIn(true);
-        disconnectIntersectObserver();
+      /* Element is visible in the viewport and waitTimer is done (or waitTimer is not set) */
+      disconnectIntersectObserver();
+
+      // Slide element in
+      if (!slideIn) {
+        setSlideIn(true); // Enabling this dynamically adds the "slideIn" class to the CSS
       }
 
-      /* If lazy loading is enabled */
-      if (lazyload && isVisibleInViewport) {
-        /* Wait for asset to load */
-        if (
-          (!imageLoading && !lazyLoaderAnimating) ||
-          (!hasImageElement && !lazyLoaderAnimating)
-        ) {
-          setAssetLoaded(true);
-          return;
+      // If lazy loading is enabled
+      if (lazyload) {
+        // Wait for slide-in animation to finish
+        if (!lazyLoaderAnimating) {
+          // If assets are loading, wait for them
+          if (!imageLoading || !hasImageElement) {
+            setAssetLoaded(true); // Enabling this dynamically adds the "loaded" class to the CSS
+            return;
+          }
         }
 
-        /* Animate Lazyloader */
+        /* Set timer to the animation speed of slide-in
+        and then set lazy loader animating to true */
         if (lazyLoaderAnimating) {
           setTimeout(() => {
             setLazyLoaderAnimating(false);
@@ -89,18 +91,18 @@ const Slide = ({
         }
       }
     } else if (isVisibleInViewport) {
+      /* Element is visible in viewport and waitTimer is set, start the timer based on the "wait" variable defined */
       setTimeout(() => {
         setWaitTimer(false);
-        console.log('test');
       }, +wait);
     }
   }, [
+    disconnectIntersectObserver,
     isVisibleInViewport,
+    waitTimer,
     slideIn,
     lazyLoaderAnimating,
     imageLoading,
-    disconnectIntersectObserver,
-    waitTimer,
     wait,
     lazyload,
     animationSpeed,
