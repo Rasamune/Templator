@@ -10,11 +10,11 @@ const Slide = ({
   lazyload = false,
   wait = 0,
 }) => {
+  const [waitTimer, setWaitTimer] = useState(wait);
   const [slideIn, setSlideIn] = useState(false);
+  const [lazyLoaderAnimating, setLazyLoaderAnimating] = useState(lazyload);
   const [imageLoading, setImageLoading] = useState(lazyload);
   const [assetLoaded, setAssetLoaded] = useState(false);
-  const [lazyLoaderAnimating, setLazyLoaderAnimating] = useState(lazyload);
-  const [waitTimer, setWaitTimer] = useState(wait);
   const [ref, entry, disconnectIntersectObserver] = useIntersect({
     rootMargin: `0% 0% ${intersectOffset} 0%`,
   });
@@ -69,6 +69,7 @@ const Slide = ({
       // Slide element in
       if (!slideIn) {
         setSlideIn(true); // Enabling this dynamically adds the "slideIn" class to the CSS
+        return;
       }
 
       // If lazy loading is enabled

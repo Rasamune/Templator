@@ -25,9 +25,9 @@ const About = () => {
           </Fade>
         </Container>
         <Background>
-          <Slide>
+          {/* <Slide>
             <div className={classes.blackbox} />
-          </Slide>
+          </Slide> */}
         </Background>
       </div>
     </View>

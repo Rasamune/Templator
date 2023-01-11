@@ -1,0 +1,32 @@
+.projects h1 {
+  text-align: center;
+}
+
+.projects .contents {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+}
+
+.projects .contents .item {
+  position: relative;
+  height: 18rem;
+  width: 100%;
+}
+
+.projects .contents .item:after {
+  position: absolute;
+  content: '';
+  background-color: black;
+  height: 85%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+.projects .contents .projectimage {
+  background-color: rgb(226, 43, 104);
+  height: 85%;
+}

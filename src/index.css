@@ -26,6 +26,10 @@ h1 {
   font-weight: 900;
 }
 
+h2 {
+  font-size: 2rem;
+}
+
 a {
   text-decoration: none;
 }
