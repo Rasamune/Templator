@@ -30,6 +30,9 @@ const Landing = () => {
           <div className={classes['background-img']}>
             <img src={landingImage} alt="Landing" />
           </div>
+          <Container>
+            <div className={classes.arrow}>Scroll down</div>
+          </Container>
         </Background>
       </div>
     </View>

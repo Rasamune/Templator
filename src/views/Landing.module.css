@@ -31,6 +31,38 @@
   margin: 1rem auto 1rem 0;
 }
 
+.landing .arrow {
+  position: relative;
+  color: white;
+  position: absolute;
+  left: 3rem;
+  bottom: 0.5rem;
+  fill: white;
+  animation: delayedfadein 5s;
+}
+
+@keyframes delayedfadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.landing .arrow:after {
+  position: absolute;
+  content: '';
+  background-color: white;
+  width: 1px;
+  height: 3rem;
+  bottom: -0.5rem;
+  left: -1rem;
+}
+
 .background-img {
   position: relative;
   width: 100%;
