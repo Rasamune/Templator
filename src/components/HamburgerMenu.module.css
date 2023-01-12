@@ -1,0 +1,39 @@
+.hamburger {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  z-index: 99999;
+  transform: translateY(-100%);
+  transition: all 0.5s ease-out;
+}
+
+.hamburger.open {
+  transform: translateY(0);
+}
+
+.bounds {
+  position: relative;
+  max-width: 1056px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.hamburger-button {
+  position: absolute;
+  right: 2rem;
+  bottom: -3rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: black;
+  cursor: pointer;
+}
+
+.hamburger-button svg {
+  fill: white;
+  height: 65%;
+  width: 65%;
+  margin: 0.5rem;
+}

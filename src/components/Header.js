@@ -2,17 +2,39 @@ import classes from './Header.module.css';
 import Container from './Container';
 
 const Header = () => {
+  const jumpToSection = e => {
+    e.preventDefault();
+    const element = e.target.getAttribute('href');
+    const elementToScrollTo = document.getElementById(element);
+    if (elementToScrollTo) {
+      elementToScrollTo.scrollIntoView();
+    }
+    window.history.replaceState(
+      'Templator',
+      'Templator',
+      `http://localhost:3000/${element}`
+    );
+  };
+
   return (
     <header>
       <Container>
         <div className={classes['header-wrapper']}>
           <div className={classes.logo}>
-            <a href="/landing">Templator</a>
+            <a href="home" onClick={jumpToSection}>
+              Templator
+            </a>
           </div>
           <div className={classes.pages}>
-            <a href="/features">Features</a>
-            <a href="/testimonials">Projects</a>
-            <a href="/about">About</a>
+            <a href="features" onClick={jumpToSection}>
+              Features
+            </a>
+            <a href="projects" onClick={jumpToSection}>
+              Projects
+            </a>
+            <a href="about" onClick={jumpToSection}>
+              About
+            </a>
           </div>
         </div>
       </Container>
