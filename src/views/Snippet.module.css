@@ -64,3 +64,25 @@
   width: 100%;
   background-color: black;
 }
+
+@media (max-width: 481px) {
+  .snippet .contents {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .snippet .contents .firstcolumn {
+    padding-top: 3rem;
+    margin: 0 2rem 0 2rem;
+  }
+
+  .snippet .contents .secondcolumn {
+    justify-content: flex-start;
+  }
+
+  .snippet .robot {
+    width: 70%;
+    height: 70%;
+    margin: 2rem auto;
+  }
+}

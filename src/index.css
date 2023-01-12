@@ -45,14 +45,37 @@ button {
   overflow: hidden;
 }
 
+button:before {
+  position: absolute;
+  content: '';
+  width: 1.5rem;
+  height: 2rem;
+  left: 50%;
+  top: 50%;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0.25);
+  transition: all 0.15s linear;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+button:hover:before {
+  transform: translate(-50%, -50%) scale(7, 5);
+  opacity: 1;
+}
+
 img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 481px) {
   html {
     font-size: 18px;
+  }
+
+  h1 {
+    font-size: 3rem;
   }
 }

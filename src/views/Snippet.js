@@ -7,7 +7,7 @@ import robotImg from '../assets/robo.png';
 
 const Snippet = () => {
   return (
-    <View half="true">
+    <View half="true" expandable="true">
       <div className={classes.snippet}>
         <Container>
           <Slide lazyload="true" wait="250">

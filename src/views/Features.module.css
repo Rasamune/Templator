@@ -42,7 +42,7 @@
   width: auto;
   color: white;
   background-color: rgb(226, 43, 104);
-  margin: 3rem auto 1rem auto;
+  margin: 3rem auto 3rem auto;
   display: block;
 }
 
@@ -62,4 +62,22 @@
   top: 4rem;
   overflow: hidden;
   background-color: black;
+}
+
+@media (max-width: 481px) {
+  .features h1 {
+    margin: 7rem 0rem 7rem 2rem;
+  }
+
+  .featureslist {
+    flex-direction: column;
+  }
+
+  .pinkbox {
+    width: 95%;
+  }
+
+  .blackbox {
+    width: 90%;
+  }
 }

@@ -11,12 +11,12 @@ import { ReactComponent as Icon3 } from '../assets/mobile.svg';
 
 const Features = () => {
   return (
-    <View id="features">
+    <View id="features" expandable="true">
       <div className={classes.features}>
         <Container>
           <h1>FEATURES</h1>
-          <Fade>
-            <div className={classes.featureslist}>
+          <div className={classes.featureslist}>
+            <Fade>
               <div className={classes.featureitem}>
                 <div className={classes.featureicon}>
                   <Icon1 />
@@ -28,6 +28,8 @@ const Features = () => {
                   at commodo nisi aliquet a.
                 </p>
               </div>
+            </Fade>
+            <Fade>
               <div className={classes.featureitem}>
                 <div className={classes.featureicon}>
                   <Icon2 />
@@ -39,6 +41,8 @@ const Features = () => {
                   ipsum ex, eget elementum lacus accumsan sit amet.
                 </p>
               </div>
+            </Fade>
+            <Fade>
               <div className={classes.featureitem}>
                 <div className={classes.featureicon}>
                   <Icon3 />
@@ -50,16 +54,16 @@ const Features = () => {
                   risus, condimentum vitae rutrum ac, mattis non dui.
                 </p>
               </div>
-            </div>
-            <Slide
-              intersectOffset="0px"
-              lazyload="true"
-              wait="300"
-              animationSpeed="750"
-            >
-              <button>See More</button>
-            </Slide>
-          </Fade>
+            </Fade>
+          </div>
+          <Slide
+            intersectOffset="0px"
+            lazyload="true"
+            wait="300"
+            animationSpeed="750"
+          >
+            <button>See More</button>
+          </Slide>
         </Container>
         <Background>
           <Slide>
