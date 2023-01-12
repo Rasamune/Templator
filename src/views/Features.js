@@ -5,6 +5,10 @@ import Background from '../components/Background';
 import Fade from '../components/Fade';
 import Slide from '../components/Slide';
 
+import { ReactComponent as Icon1 } from '../assets/open-box.svg';
+import { ReactComponent as Icon2 } from '../assets/person-book.svg';
+import { ReactComponent as Icon3 } from '../assets/mobile.svg';
+
 const Features = () => {
   return (
     <View id="features">
@@ -14,7 +18,9 @@ const Features = () => {
           <Fade>
             <div className={classes.featureslist}>
               <div className={classes.featureitem}>
-                <div className={classes.featureicon}></div>
+                <div className={classes.featureicon}>
+                  <Icon1 />
+                </div>
                 <h3>Lorem</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
@@ -23,7 +29,9 @@ const Features = () => {
                 </p>
               </div>
               <div className={classes.featureitem}>
-                <div className={classes.featureicon}></div>
+                <div className={classes.featureicon}>
+                  <Icon2 />
+                </div>
                 <h3>Pellentesque</h3>
                 <p>
                   Pellentesque cursus tempus condimentum. Ut purus quam,
@@ -32,7 +40,9 @@ const Features = () => {
                 </p>
               </div>
               <div className={classes.featureitem}>
-                <div className={classes.featureicon}></div>
+                <div className={classes.featureicon}>
+                  <Icon3 />
+                </div>
                 <h3>Nullam</h3>
                 <p>
                   Nullam molestie sagittis urna et lobortis. Fusce neque augue,
