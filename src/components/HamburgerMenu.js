@@ -8,8 +8,11 @@ const HamburgerMenu = () => {
   const [hamburgerVisible, setHamburgerVisible] = useState(false);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [scrollingDelay, setScrollingDelay] = useState(false);
+  const [scrollFreezePosition, setScrollFreePosition] = useState(0);
 
   const openHamburgerMenu = () => {
+    const windowScrollPosition = window.scrollY;
+    setScrollFreePosition(windowScrollPosition);
     setHamburgerOpen(true);
   };
 
@@ -18,7 +21,7 @@ const HamburgerMenu = () => {
   };
 
   const handleScroll = useCallback(() => {
-    if (!scrollingDelay) {
+    if (!scrollingDelay && !hamburgerOpen) {
       const windowScrollPosition = window.scrollY;
       const mainSectionHeight =
         document.getElementById('root').getElementsByTagName('section')[0]
@@ -30,13 +33,19 @@ const HamburgerMenu = () => {
         setHamburgerVisible(false);
       }
 
+      //Set a short time out so scripts don't run on every mouse wheel/scroll bar movement iteration
       setScrollingDelay(true);
 
       setTimeout(() => {
         setScrollingDelay(false);
       }, [100]);
     }
-  }, [scrollingDelay, hamburgerOpen]);
+
+    // If Hamburger is Open, freeze scroll position by jumping to the position previously recorded when hamburger was opened
+    if (hamburgerOpen) {
+      window.scrollTo(0, scrollFreezePosition);
+    }
+  }, [scrollingDelay, hamburgerOpen, scrollFreezePosition]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
