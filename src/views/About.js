@@ -19,7 +19,7 @@ const About = () => {
               vehicula. Etiam sagittis felis quis arcu porta, id gravida nulla
               elementum.
             </p>
-            <Slide lazyload={true}>
+            <Slide lazyload={true} wait="350">
               <button className={classes.button}>Learn More</button>
             </Slide>
           </Fade>
