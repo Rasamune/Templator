@@ -8,11 +8,11 @@ const HamburgerMenu = () => {
   const [hamburgerVisible, setHamburgerVisible] = useState(false);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [scrollingDelay, setScrollingDelay] = useState(false);
-  const [scrollFreezePosition, setScrollFreePosition] = useState(0);
+  const [scrollFreezePosition, setScrollFreezePosition] = useState(0);
 
   const openHamburgerMenu = () => {
     const windowScrollPosition = window.scrollY;
-    setScrollFreePosition(windowScrollPosition);
+    setScrollFreezePosition(windowScrollPosition);
     setHamburgerOpen(true);
   };
 
