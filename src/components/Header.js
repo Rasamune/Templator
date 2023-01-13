@@ -1,5 +1,6 @@
 import classes from './Header.module.css';
 import Container from './Container';
+import HamburgerMenu from './HamburgerMenu';
 
 const Header = () => {
   const jumpToSection = e => {
@@ -19,6 +20,7 @@ const Header = () => {
   return (
     <header>
       <Container>
+        <HamburgerMenu />
         <div className={classes['header-wrapper']}>
           <div className={classes.logo}>
             <a href="home" onClick={jumpToSection}>
