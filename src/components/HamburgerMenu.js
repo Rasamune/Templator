@@ -50,6 +50,18 @@ const HamburgerMenu = () => {
     }
   }, [scrollingDelay, hamburgerOpen, scrollFreezePosition, isMobile]);
 
+  // On href click force the page to reload so that the animations for the section play
+  const handleReload = e => {
+    e.preventDefault();
+    const element = e.target.getAttribute('href');
+    window.history.replaceState(
+      'Templator',
+      'Templator',
+      `http://localhost:3000/${element}`
+    );
+    window.location.reload();
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -82,22 +94,30 @@ const HamburgerMenu = () => {
             <ul>
               <Fade direction="top" animationSpeed="500" wait="675">
                 <li>
-                  <a href="home">Home</a>
+                  <a href="#home" onClick={handleReload}>
+                    Home
+                  </a>
                 </li>
               </Fade>
               <Fade direction="top" animationSpeed="500" wait="550">
                 <li>
-                  <a href="features">Features</a>
+                  <a href="#features" onClick={handleReload}>
+                    Features
+                  </a>
                 </li>
               </Fade>
               <Fade direction="top" animationSpeed="500" wait="425">
                 <li>
-                  <a href="projects">Projects</a>
+                  <a href="#projects" onClick={handleReload}>
+                    Projects
+                  </a>
                 </li>
               </Fade>
               <Fade direction="top" animationSpeed="500" wait="300">
                 <li>
-                  <a href="about">About</a>
+                  <a href="#about" onClick={handleReload}>
+                    About
+                  </a>
                 </li>
               </Fade>
             </ul>

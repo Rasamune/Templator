@@ -8,7 +8,7 @@ import Slide from '../components/Slide';
 
 const Landing = () => {
   return (
-    <View id="landing">
+    <View id="home">
       <div className={classes.landing}>
         <Container>
           <Fade>

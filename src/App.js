@@ -10,7 +10,7 @@ import Footer from './views/Footer';
 function App() {
   // If Page Section is includew in Path, automatically jump to the specified section
   useEffect(() => {
-    const path = window.location.pathname.slice(1);
+    const path = window.location.hash.slice(1);
     const elementToScrollTo = document.getElementById(path);
     if (elementToScrollTo) {
       elementToScrollTo.scrollIntoView();

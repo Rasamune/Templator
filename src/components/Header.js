@@ -5,7 +5,7 @@ import HamburgerMenu from './HamburgerMenu';
 const Header = () => {
   const jumpToSection = e => {
     e.preventDefault();
-    const element = e.target.getAttribute('href');
+    const element = e.target.getAttribute('href').slice(1);
     const elementToScrollTo = document.getElementById(element);
     if (elementToScrollTo) {
       elementToScrollTo.scrollIntoView();
@@ -13,7 +13,7 @@ const Header = () => {
     window.history.replaceState(
       'Templator',
       'Templator',
-      `http://localhost:3000/${element}`
+      `http://localhost:3000/#${element}`
     );
   };
 
@@ -23,18 +23,18 @@ const Header = () => {
         <HamburgerMenu />
         <div className={classes['header-wrapper']}>
           <div className={classes.logo}>
-            <a href="home" onClick={jumpToSection}>
+            <a href="#home" onClick={jumpToSection}>
               Templator
             </a>
           </div>
           <div className={classes.pages}>
-            <a href="features" onClick={jumpToSection}>
+            <a href="#features" onClick={jumpToSection}>
               Features
             </a>
-            <a href="projects" onClick={jumpToSection}>
+            <a href="#projects" onClick={jumpToSection}>
               Projects
             </a>
-            <a href="about" onClick={jumpToSection}>
+            <a href="#about" onClick={jumpToSection}>
               About
             </a>
           </div>
