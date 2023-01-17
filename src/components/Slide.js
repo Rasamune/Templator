@@ -28,7 +28,9 @@ const Slide = ({
   const isVisibleInViewport = entry.isIntersecting;
   const InheritedElementType = children.type;
   const inheritedProps = children.props;
-  const inheritedClasses = children.props.className;
+  const inheritedClasses = children.props.className
+    ? children.props.className
+    : '';
 
   const getNestedChildren = children => {
     return Children.map(children, childNode => {

@@ -7,9 +7,9 @@ const View = ({
   expandable = false,
   heightauto = false,
 }) => {
-  const viewClasses = `${classes.view} ${half ? classes.half : null} ${
-    expandable ? classes.expandable : null
-  } ${heightauto ? classes.auto : null}`;
+  const viewClasses = `${classes.view} ${half ? classes.half : ''} ${
+    expandable ? classes.expandable : ''
+  } ${heightauto ? classes.auto : ''}`;
 
   return (
     <section id={id} className={viewClasses}>
