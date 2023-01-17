@@ -5,7 +5,8 @@ import { ReactComponent as CloseIcon } from '../assets/close.svg';
 import Fade from './Fade';
 
 const HamburgerMenu = () => {
-  const [hamburgerVisible, setHamburgerVisible] = useState(false);
+  const isMobile = window.innerWidth < 481 ? true : false;
+  const [hamburgerVisible, setHamburgerVisible] = useState(isMobile);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [scrollingDelay, setScrollingDelay] = useState(false);
   const [scrollFreezePosition, setScrollFreezePosition] = useState(0);
@@ -21,31 +22,33 @@ const HamburgerMenu = () => {
   };
 
   const handleScroll = useCallback(() => {
-    if (!scrollingDelay && !hamburgerOpen) {
-      const windowScrollPosition = window.scrollY;
-      const mainSectionHeight =
-        document.getElementById('root').getElementsByTagName('section')[0]
-          .offsetHeight / 2;
+    if (!isMobile) {
+      if (!scrollingDelay && !hamburgerOpen) {
+        const windowScrollPosition = window.scrollY;
+        const mainSectionHeight =
+          document.getElementById('root').getElementsByTagName('section')[0]
+            .offsetHeight / 2;
 
-      if (windowScrollPosition >= mainSectionHeight) {
-        setHamburgerVisible(true);
-      } else if (!hamburgerOpen) {
-        setHamburgerVisible(false);
+        if (windowScrollPosition >= mainSectionHeight) {
+          setHamburgerVisible(true);
+        } else if (!hamburgerOpen) {
+          setHamburgerVisible(false);
+        }
+
+        //Set a short time out so scripts don't run on every mouse wheel/scroll bar movement iteration
+        setScrollingDelay(true);
+
+        setTimeout(() => {
+          setScrollingDelay(false);
+        }, [100]);
       }
-
-      //Set a short time out so scripts don't run on every mouse wheel/scroll bar movement iteration
-      setScrollingDelay(true);
-
-      setTimeout(() => {
-        setScrollingDelay(false);
-      }, [100]);
     }
 
     // If Hamburger is Open, freeze scroll position by jumping to the position previously recorded when hamburger was opened
     if (hamburgerOpen) {
       window.scrollTo(0, scrollFreezePosition);
     }
-  }, [scrollingDelay, hamburgerOpen, scrollFreezePosition]);
+  }, [scrollingDelay, hamburgerOpen, scrollFreezePosition, isMobile]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);

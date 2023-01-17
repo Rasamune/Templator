@@ -25,3 +25,9 @@ header {
 header a {
   color: white;
 }
+
+@media (max-width: 481px) {
+  .header-wrapper {
+    display: none;
+  }
+}

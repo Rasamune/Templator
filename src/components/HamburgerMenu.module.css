@@ -113,3 +113,12 @@
   bottom: -0.25rem;
   transform: translateX(-50%);
 }
+
+@media (max-width: 481px) {
+  .hamburger-button {
+    right: 1rem;
+  }
+  .hamburgerclose-button {
+    right: 2rem;
+  }
+}

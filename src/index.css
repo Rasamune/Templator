@@ -21,6 +21,16 @@ p {
   margin: 0;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
 h1 {
   font-size: 4rem;
   font-weight: 900;

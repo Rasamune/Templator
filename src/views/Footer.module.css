@@ -1,0 +1,46 @@
+footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+  min-height: 25vh;
+  background-color: black;
+}
+
+footer p {
+  text-align: center;
+  color: white;
+}
+
+footer ul {
+  text-align: center;
+}
+
+footer li {
+  display: inline-block;
+  margin: 0.5rem;
+  height: 3rem;
+  width: 3rem;
+  fill: white;
+}
+
+footer a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+footer a:visited {
+  color: white;
+  fill: white;
+}
+
+footer a:hover {
+  fill: rgb(226, 43, 104);
+}
+
+footer svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}

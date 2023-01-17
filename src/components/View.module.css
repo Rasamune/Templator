@@ -6,6 +6,11 @@
   z-index: 10;
 }
 
+.view.auto {
+  height: auto;
+  min-height: auto;
+}
+
 .view.half {
   height: 50vh;
   min-height: 24.5rem;
