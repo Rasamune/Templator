@@ -1,12 +1,25 @@
 import classes from './Landing.module.css';
+import { useState } from 'react';
 import View from '../components/View';
 import Container from '../components/Container';
 import Background from '../components/Background';
-import landingImage from '../assets/landing-img.jpg';
 import Fade from '../components/Fade';
 import Slide from '../components/Slide';
+import landingImage from '../assets/landing-img.jpg';
+import landingimageloading from '../assets/landing-img-loading.jpg';
 
 const Landing = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const imageLoadHandler = () => {
+    console.log('test');
+    setImageLoaded(true);
+  };
+
+  const imageClasses = `${classes.loadingimage} ${
+    imageLoaded ? classes.imageloaded : ''
+  }`;
+
   return (
     <View id="home">
       <div className={classes.landing}>
@@ -28,7 +41,12 @@ const Landing = () => {
         </Container>
         <Background>
           <div className={classes['background-img']}>
-            <img src={landingImage} alt="Landing" />
+            <img
+              src={landingimageloading}
+              className={imageClasses}
+              alt="Landing Load"
+            />
+            <img src={landingImage} onLoad={imageLoadHandler} alt="Landing" />
           </div>
           <Container>
             <div className={classes.arrow}>Scroll down</div>
