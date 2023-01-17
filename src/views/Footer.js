@@ -1,6 +1,7 @@
 import classes from './Footer.module.css';
 import View from '../components/View';
 import Container from '../components/Container';
+import Background from '../components/Background';
 import { ReactComponent as Twittericon } from '../assets/twitter.svg';
 import { ReactComponent as Facebookicon } from '../assets/facebook.svg';
 import { ReactComponent as Linkedinicon } from '../assets/linkedin.svg';
@@ -9,8 +10,8 @@ import { ReactComponent as Instagramicon } from '../assets/instagram.svg';
 const Footer = () => {
   return (
     <View heightauto="true">
-      <Container>
-        <footer>
+      <footer>
+        <Container>
           <div className={classes.socials}>
             <ul>
               <li>
@@ -36,8 +37,11 @@ const Footer = () => {
             </ul>
           </div>
           <p>© Templator 2023</p>
-        </footer>
-      </Container>
+        </Container>
+        <Background>
+          <div className={classes.background} />
+        </Background>
+      </footer>
     </View>
   );
 };
