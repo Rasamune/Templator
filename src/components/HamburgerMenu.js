@@ -54,11 +54,7 @@ const HamburgerMenu = () => {
   const handleReload = e => {
     e.preventDefault();
     const element = e.target.getAttribute('href');
-    window.history.replaceState(
-      'Templator',
-      'Templator',
-      `http://localhost:3000/${element}`
-    );
+    window.history.pushState({}, '', `${window.location.origin}/${element}`);
     window.location.reload();
   };
 

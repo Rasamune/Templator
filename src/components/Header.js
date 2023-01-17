@@ -10,11 +10,7 @@ const Header = () => {
     if (elementToScrollTo) {
       elementToScrollTo.scrollIntoView();
     }
-    window.history.replaceState(
-      'Templator',
-      'Templator',
-      `http://localhost:3000/#${element}`
-    );
+    window.history.pushState({}, '', `${window.location.origin}/#${element}`);
   };
 
   return (
