@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header>
       <Container>
-        <HamburgerMenu />
+        <HamburgerMenu onNavigate={jumpToSection} />
         <div className={classes['header-wrapper']}>
           <div className={classes.logo}>
             <a href="#home" onClick={jumpToSection}>

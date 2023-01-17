@@ -4,7 +4,7 @@ import { ReactComponent as HamburgerIcon } from '../assets/hamburger-menu.svg';
 import { ReactComponent as CloseIcon } from '../assets/close.svg';
 import Fade from './Fade';
 
-const HamburgerMenu = () => {
+const HamburgerMenu = props => {
   const isMobile = window.innerWidth < 481 ? true : false;
   const [hamburgerVisible, setHamburgerVisible] = useState(isMobile);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
@@ -51,11 +51,14 @@ const HamburgerMenu = () => {
   }, [scrollingDelay, hamburgerOpen, scrollFreezePosition, isMobile]);
 
   // On href click force the page to reload so that the animations for the section play
-  const handleReload = e => {
+  const handleClick = e => {
     e.preventDefault();
-    const element = e.target.getAttribute('href');
-    window.history.pushState({}, '', `${window.location.origin}/${element}`);
-    window.location.reload();
+    // const element = e.target.getAttribute('href');
+    // window.history.pushState({}, '', `${window.location.origin}/${element}`);
+    // window.location.reload();
+    setScrollFreezePosition(false);
+    setHamburgerOpen(false);
+    props.onNavigate(e);
   };
 
   useEffect(() => {
@@ -90,28 +93,28 @@ const HamburgerMenu = () => {
             <ul>
               <Fade direction="top" animationSpeed="500" wait="675">
                 <li>
-                  <a href="#home" onClick={handleReload}>
+                  <a href="#home" onClick={handleClick}>
                     Home
                   </a>
                 </li>
               </Fade>
               <Fade direction="top" animationSpeed="500" wait="550">
                 <li>
-                  <a href="#features" onClick={handleReload}>
+                  <a href="#features" onClick={handleClick}>
                     Features
                   </a>
                 </li>
               </Fade>
               <Fade direction="top" animationSpeed="500" wait="425">
                 <li>
-                  <a href="#projects" onClick={handleReload}>
+                  <a href="#projects" onClick={handleClick}>
                     Projects
                   </a>
                 </li>
               </Fade>
               <Fade direction="top" animationSpeed="500" wait="300">
                 <li>
-                  <a href="#about" onClick={handleReload}>
+                  <a href="#about" onClick={handleClick}>
                     About
                   </a>
                 </li>
