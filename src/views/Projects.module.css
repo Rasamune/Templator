@@ -5,6 +5,10 @@
   padding-top: 5rem;
 }
 
+.projects button {
+  padding: 0;
+}
+
 .projects .contents {
   display: grid;
   gap: 1rem;

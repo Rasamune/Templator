@@ -17,9 +17,9 @@ const Projects = () => {
             <Fade animationSpeed="750">
               <div className={classes.item}>
                 <Slide lazyload="true">
-                  <div className={classes.projectimage}>
+                  <button className={classes.projectimage}>
                     <img src={placeholder} alt="project1" />
-                  </div>
+                  </button>
                 </Slide>
                 <h3>Aliquet</h3>
               </div>
@@ -27,9 +27,9 @@ const Projects = () => {
             <Fade animationSpeed="750" wait="300">
               <div className={classes.item}>
                 <Slide lazyload="true" wait="300">
-                  <div className={classes.projectimage}>
+                  <button className={classes.projectimage}>
                     <img src={placeholder} alt="project2" />
-                  </div>
+                  </button>
                 </Slide>
                 <h3>Efficitur Orci</h3>
               </div>
@@ -37,9 +37,9 @@ const Projects = () => {
             <Fade animationSpeed="750">
               <div className={classes.item}>
                 <Slide lazyload="true">
-                  <div className={classes.projectimage}>
+                  <button className={classes.projectimage}>
                     <img src={placeholder} alt="project3" />
-                  </div>
+                  </button>
                 </Slide>
                 <h3>Scelerisque</h3>
               </div>
@@ -47,9 +47,9 @@ const Projects = () => {
             <Fade animationSpeed="750" wait="300">
               <div className={classes.item}>
                 <Slide lazyload="true" wait="300">
-                  <div className={classes.projectimage}>
+                  <button className={classes.projectimage}>
                     <img src={placeholder} alt="project4" />
-                  </div>
+                  </button>
                 </Slide>
                 <h3>Libero non felis</h3>
               </div>
@@ -57,9 +57,9 @@ const Projects = () => {
             <Fade animationSpeed="750">
               <div className={classes.item}>
                 <Slide lazyload="true">
-                  <div className={classes.projectimage}>
+                  <button className={classes.projectimage}>
                     <img src={placeholder} alt="project5" />
-                  </div>
+                  </button>
                 </Slide>
                 <h3>Adipiscing</h3>
               </div>
