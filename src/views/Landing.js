@@ -23,9 +23,9 @@ const Landing = () => {
   return (
     <View id="home">
       <div className={classes.landing}>
-        <Container>
+        <Container >
           <Fade>
-            <div className={classes.contents}>
+            <div className={classes.contents} data-annotation="hero-text">
               <h1>Templator</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
@@ -40,7 +40,7 @@ const Landing = () => {
           </Fade>
         </Container>
         <Background>
-          <div className={classes['background-img']}>
+          <div className={classes['background-img']} data-annotation="landing-background">
             <img
               src={landingimageloading}
               className={imageClasses}

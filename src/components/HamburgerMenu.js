@@ -77,18 +77,18 @@ const HamburgerMenu = props => {
   return (
     <>
       <div className={hamburgerClasses}>
-        <div className={classes.bounds}>
-          <div className={hamburgerButtonClasses} onClick={openHamburgerMenu}>
+        <div className={classes.bounds} data-annotation="hamburger-menu">
+          <button className={hamburgerButtonClasses} onClick={openHamburgerMenu}>
             <HamburgerIcon />
-          </div>
+          </button>
           <div className={classes['hamburger-menu']}>
             <Fade direction="top" animationSpeed="500" wait="800">
-              <div
+              <button
                 className={classes['hamburgerclose-button']}
                 onClick={closeHamburgerMenu}
               >
                 <CloseIcon />
-              </div>
+              </button>
             </Fade>
             <ul>
               <Fade direction="top" animationSpeed="500" wait="675">

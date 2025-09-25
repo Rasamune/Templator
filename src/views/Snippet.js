@@ -11,7 +11,7 @@ const Snippet = () => {
       <div className={classes.snippet}>
         <Container>
           <Slide lazyload="true" wait="250">
-            <div className={classes.contents}>
+            <div className={classes.contents} data-annotation="snippet-content">
               <div className={classes.firstcolumn}>
                 <h2>Snippet</h2>
                 <p>

@@ -1,0 +1,55 @@
+.toggleContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+}
+
+.toggleBtn {
+  background: grey;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.toggleBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(0, 123, 255, 0.4);
+}
+
+.toggleBtn.active {
+  background: #007bff;
+  box-shadow: 0 4px 20px rgba(40, 167, 69, 0.3);
+}
+
+.toggleBtn.active:hover {
+  box-shadow: 0 6px 30px rgba(40, 167, 69, 0.4);
+}
+
+.icon {
+  font-size: 18px;
+}
+
+.text {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .toggleContainer {
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .toggleBtn {
+    padding: 10px 16px;
+  }
+}

@@ -12,13 +12,13 @@ import { ReactComponent as Icon3 } from '../assets/mobile.svg';
 const Features = () => {
   return (
     <View id="features" expandable="true">
-      <div className={classes.features}>
+      <div className={classes.features} >
         <Container>
-          <h1>FEATURES</h1>
+          <h1 data-annotation="viewtitle">FEATURES</h1>
           <div className={classes.featureslist}>
             <Fade>
               <div className={classes.featureitem}>
-                <div className={classes.featureicon}>
+                <div className={classes.featureicon} data-annotation="featureicon">
                   <Icon1 />
                 </div>
                 <h3>Lorem</h3>
@@ -30,7 +30,7 @@ const Features = () => {
               </div>
             </Fade>
             <Fade>
-              <div className={classes.featureitem}>
+              <div className={classes.featureitem} data-annotation="featureitem">
                 <div className={classes.featureicon}>
                   <Icon2 />
                 </div>
@@ -67,7 +67,7 @@ const Features = () => {
         </Container>
         <Background>
           <Slide>
-            <div className={classes.pinkbox} />
+            <div className={classes.pinkbox} data-annotation="pinkbox" />
           </Slide>
           <Slide wait="500">
             <div className={classes.blackbox} />

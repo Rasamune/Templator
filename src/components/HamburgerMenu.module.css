@@ -21,6 +21,10 @@
   margin: 0 auto;
 }
 
+.hamburger button {
+  padding: 0;
+}
+
 .hamburger-button {
   position: absolute;
   right: 2rem;
@@ -65,7 +69,6 @@
 .hamburgerclose-button svg {
   height: 100%;
   width: 100%;
-  margin: 0.5rem;
 }
 
 .hamburger-menu {

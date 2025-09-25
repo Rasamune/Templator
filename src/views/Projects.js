@@ -15,7 +15,7 @@ const Projects = () => {
           <h1>Projects</h1>
           <div className={classes.contents}>
             <Fade animationSpeed="750">
-              <div className={classes.item}>
+              <div className={classes.item} data-annotation="project-card">
                 <Slide lazyload="true">
                   <button className={classes.projectimage}>
                     <img src={placeholder} alt="project1" />
