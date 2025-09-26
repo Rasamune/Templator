@@ -34,7 +34,8 @@ const TechShowcase = ({ enabled = true }) => {
 
 <img onLoad={imageLoadHandler} ... />`,
       dropdownPosition: 'right',
-      offset: { x: -150, y: 100 },
+      position: 'center',
+      offset: { x: 100, y: 100 },
       highlights: ['Reduces initial load time', 'Intersection Observer API', 'Progressive enhancement']
     },
     {
@@ -204,7 +205,7 @@ const Fade = ({
   expandable = false,
   heightauto = false,
 }) => {...}`,
-      offset: { x: 50, y: 50 },
+      offset: { x: 50, y: -50 },
       position: 'left',
       dropdownPosition: 'left',
       highlights: ['Modular design', 'Easy to add new sections', 'Consistent structure']
@@ -248,9 +249,9 @@ const Fade = ({
           const scrollX = window.pageXOffset;
           
           // Check if element is in viewport
-          const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+          // const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
           
-          if (inViewport) {
+          // if (inViewport) {
             let startPosition;
             switch (annotation.position) {
                 case 'left': startPosition = rect.left + scrollX; break;
@@ -264,7 +265,7 @@ const Fade = ({
               top: rect.top + scrollY + (annotation.offset?.y || 0),
               visible: true
             };
-          }
+          // }
         }
       });
       
@@ -296,7 +297,13 @@ const Fade = ({
           <div
             data-annotation-id={annotation.id}
             key={annotation.id}
-            ref={el => annotationRefs.current[annotation.id] = el}
+            ref={el => {
+              annotationRefs.current[annotation.id] = el;
+              if (el) {
+                el.hideAnnotation = () => setActiveAnnotation(null);
+                el.showAnnotation = () => setActiveAnnotation(annotation.id);
+              }
+            }}
             className={`${classes.annotationPoint} ${activeAnnotation === annotation.id ? classes.active : ''}`}
             style={{
               position: 'absolute',

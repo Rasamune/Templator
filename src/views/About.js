@@ -8,10 +8,10 @@ import Slide from '../components/Slide';
 const About = () => {
   return (
     <View id="about" half="true">
-      <div className={classes.about} data-annotation="view-wrapper">
+      <div className={classes.about}>
         <Container>
           <Fade>
-            <h1>ABOUT</h1>
+            <h1 data-annotation="view-wrapper">ABOUT</h1>
 
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
