@@ -20,7 +20,7 @@ const About = () => {
               elementum.
             </p>
             <Slide lazyload={true} wait="350">
-              <button className={classes.button}>Learn More</button>
+              <button className={classes.button}>Button</button>
             </Slide>
           </Fade>
         </Container>

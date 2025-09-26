@@ -8,6 +8,7 @@ import About from './views/About';
 import Footer from './views/Footer';
 import TechShowcase from './components/TechShowcase';
 import TechShowcaseToggle from './components/TechShowcaseToggle';
+import TechNavigator from './components/TechNavigator';
 
 function App() {
   const [showTechAnnotations, setShowTechAnnotations] = useState(true);
@@ -23,14 +24,20 @@ function App() {
 
   return (
     <>
+      <TechShowcase enabled={showTechAnnotations} />
       <Header />
+      <TechNavigator annotationIds={['lazy-background','hero-animation']} />
       <Landing />
+      <TechNavigator annotationIds={['view-component','svg-icons', 'fade-animation']} />
       <Features />
+      <TechNavigator annotationIds={['snippet-slide']} />
       <Snippet />
+      <TechNavigator annotationIds={['project-grid','project-card']} />
       <Projects />
+      <TechNavigator annotationIds={['view-pattern']} />
       <About />
       <Footer />
-      <TechShowcase enabled={showTechAnnotations} />
+      
       <TechShowcaseToggle 
         enabled={showTechAnnotations} 
         onToggle={() => setShowTechAnnotations(!showTechAnnotations)}

@@ -34,7 +34,7 @@ const Landing = () => {
                 est tortor.
               </p>
               <Slide lazyload="true" wait="1000" animationSpeed="500">
-                <button>Click Here</button>
+                <button>Button</button>
               </Slide>
             </div>
           </Fade>

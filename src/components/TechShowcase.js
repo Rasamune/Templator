@@ -287,7 +287,7 @@ const Fade = ({
 
   if (!enabled) return null;
 
-  return createPortal(
+  return (
     <div className={classes.techShowcase}>
       {annotations.map(annotation => {
         const position = annotationPositions[annotation.id];
@@ -295,6 +295,7 @@ const Fade = ({
         
         return (
           <div
+            data-annotation-id={annotation.id}
             key={annotation.id}
             ref={el => annotationRefs.current[annotation.id] = el}
             className={`${classes.annotationPoint} ${activeAnnotation === annotation.id ? classes.active : ''}`}
@@ -304,8 +305,12 @@ const Fade = ({
               top: `${position.top}px`
             }}
             onClick={() => setActiveAnnotation(annotation.id)}
+            onFocus={() => setActiveAnnotation(annotation.id)}
             onMouseEnter={() => setActiveAnnotation(annotation.id)}
             onMouseLeave={() => setActiveAnnotation(null)}
+            onBlur={() => setActiveAnnotation(null)}
+            tabIndex={0}
+            aria-label={annotation.title}
           >
             <div className={classes.pulseRing}></div>
             <div className={classes.centerDot}></div>
@@ -360,8 +365,7 @@ const Fade = ({
           </div>
         );
       })}
-    </div>,
-    document.body
+    </div>
   );
 };
 

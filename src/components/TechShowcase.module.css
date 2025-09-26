@@ -8,8 +8,32 @@
   z-index: 999;
 }
 
+/* Visually hidden class for accessibility menu */
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* Temporary visible version for testing */
+.visibleForTesting {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: white;
+  border: 1px solid black;
+  padding: 10px;
+  z-index: 10000;
+}
+
 .techShowcase button {
     padding: 0;
+    pointer-events: auto;
 }
 
 .annotationPoint {
@@ -19,6 +43,7 @@
   cursor: pointer;
   pointer-events: all;
   animation: fadeIn 0.5s ease-out;
+  pointer-events: auto;
 }
 
 @keyframes fadeIn {

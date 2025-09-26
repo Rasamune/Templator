@@ -62,7 +62,7 @@ const Features = () => {
             wait="300"
             animationSpeed="750"
           >
-            <button>See More</button>
+            <button>Button</button>
           </Slide>
         </Container>
         <Background>

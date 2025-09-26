@@ -1,0 +1,8 @@
+.navigator {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+}
