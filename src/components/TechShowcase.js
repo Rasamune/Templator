@@ -315,8 +315,8 @@ const Fade = ({
             onMouseEnter={() => setActiveAnnotation(annotation.id)}
             onMouseLeave={() => setActiveAnnotation(null)}
             onBlur={() => setActiveAnnotation(null)}
-            tabIndex={0}
-            aria-label={annotation.title}
+            // tabIndex={0}
+            // aria-label={annotation.title}
           >
             <div className={classes.pulseRing}></div>
             <div className={classes.centerDot}></div>
