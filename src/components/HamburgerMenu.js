@@ -78,7 +78,7 @@ const HamburgerMenu = props => {
     <>
       <div className={hamburgerClasses}>
         <div className={classes.bounds} data-annotation="hamburger-menu">
-          <button className={hamburgerButtonClasses} onClick={openHamburgerMenu}>
+          <button className={hamburgerButtonClasses} onClick={openHamburgerMenu} tabIndex={hamburgerVisible ? 0 : -1}>
             <HamburgerIcon />
           </button>
           <div className={classes['hamburger-menu']}>
@@ -93,28 +93,28 @@ const HamburgerMenu = props => {
             <ul>
               <Fade direction="top" animationSpeed="500" wait="675">
                 <li>
-                  <a href="#home" onClick={handleClick}>
+                  <a href="#home" onClick={handleClick} tabIndex={hamburgerOpen ? 0 : -1}>
                     Home
                   </a>
                 </li>
               </Fade>
               <Fade direction="top" animationSpeed="500" wait="550">
                 <li>
-                  <a href="#features" onClick={handleClick}>
+                  <a href="#features" onClick={handleClick} tabIndex={hamburgerOpen ? 0 : -1}>
                     Features
                   </a>
                 </li>
               </Fade>
               <Fade direction="top" animationSpeed="500" wait="425">
                 <li>
-                  <a href="#projects" onClick={handleClick}>
+                  <a href="#projects" onClick={handleClick} tabIndex={hamburgerOpen ? 0 : -1}>
                     Projects
                   </a>
                 </li>
               </Fade>
               <Fade direction="top" animationSpeed="500" wait="300">
                 <li>
-                  <a href="#about" onClick={handleClick}>
+                  <a href="#about" onClick={handleClick} tabIndex={hamburgerOpen ? 0 : -1}>
                     About
                   </a>
                 </li>
